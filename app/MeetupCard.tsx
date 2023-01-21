@@ -1,14 +1,28 @@
+"use client";
 import {
   UserGroupIcon,
   CalendarIcon,
   MapPinIcon,
+  ArrowRightCircleIcon,
 } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
 
 type Props = {
   meetup: Meetup;
 };
 
 export default function MeetupCard({ meetup }: Props) {
+  const router = useRouter();
+
+  const clickHandler = () => {
+    const queryString = Object.entries(meetup)
+      .map(([key, value]) => `${key}=${value}`)
+      .join("&");
+
+    const url = `/meetup?${queryString}`;
+    router.push(url);
+  };
+
   return (
     <div className="w-96 md:w-[600px] flex flex-row roundend-lg bg-slate-100 shadow-lg hover:scale-105 hover:shadow-xl hover:bg-slate-200 transition-all duration-200 ease-out">
       <div className="w-40 md:w-60 h-44 md:h-56 object-cover rounded-l-md shadow-sm overflow-hidden">
@@ -23,20 +37,45 @@ export default function MeetupCard({ meetup }: Props) {
         )}
       </div>
 
-      <div className="ml-4 mt-4">
-        <h2 className="uppercase underline decoration-purple-700 font-bold text-lg">{meetup.title}</h2>
+      <div className="ml-4 mt-4 flex flex-col justify-between">
+        <h2 className="uppercase underline decoration-purple-700 font-bold text-lg">
+          {meetup.title}
+        </h2>
 
-        <div className="flex flex-row mt-4">
+        <div className="flex flex-row">
           <CalendarIcon className="h-8 w-8 text-gray-700 mr-1" />
           <p className="font-bold mt-1">{meetup.date}</p>
         </div>
 
-        <div className="flex flex-row mt-4">
+        <div className="flex flex-row">
           <MapPinIcon className="h-8 w-8 text-gray-700 mr-1 mt-2" />
           <div>
             <p>{meetup.street}</p>
             <p>{meetup.city}</p>
           </div>
+        </div>
+
+        <div className="mb-4">
+          <button
+            type="button"
+            className="text-white h-8 bg-purple-700 hover:bg-purple-500 font-bold rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+            onClick={clickHandler}
+          >
+            Explore Event
+            <svg
+              aria-hidden="true"
+              className="w-5 h-5 ml-2 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
