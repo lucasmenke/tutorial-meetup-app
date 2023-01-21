@@ -23,16 +23,16 @@ export default function MeetupCard({ meetup }: Props) {
         )}
       </div>
 
-      <div>
-        <h2>{meetup.title}</h2>
+      <div className="ml-4 mt-4">
+        <h2 className="uppercase underline decoration-purple-700 font-bold text-lg">{meetup.title}</h2>
 
-        <div>
-          <CalendarIcon className="h-8 w-8 text-gray-700" />
-          <p className="font-bold">{meetup.date}</p>
+        <div className="flex flex-row mt-4">
+          <CalendarIcon className="h-8 w-8 text-gray-700 mr-1" />
+          <p className="font-bold mt-1">{meetup.date}</p>
         </div>
 
-        <div>
-          <MapPinIcon className="h-8 w-8 text-gray-700" />
+        <div className="flex flex-row mt-4">
+          <MapPinIcon className="h-8 w-8 text-gray-700 mr-1 mt-2" />
           <div>
             <p>{meetup.street}</p>
             <p>{meetup.city}</p>
