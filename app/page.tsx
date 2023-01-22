@@ -5,7 +5,8 @@ export default function HomePage() {
   const meetups: Meetup[] = getAllFeaturedEvents();
 
   return (
-    <div>
+    <div className="w-80 md:w-[600px] m-auto">
+      <h2 className="font-semibold">Featured Meetups</h2>
       <MeetupList meetups={meetups} />
     </div>
   );
