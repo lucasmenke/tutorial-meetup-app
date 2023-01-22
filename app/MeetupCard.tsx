@@ -14,13 +14,8 @@ type Props = {
 export default function MeetupCard({ meetup }: Props) {
   const router = useRouter();
 
-  const clickHandler = () => {
-    const queryString = Object.entries(meetup)
-      .map(([key, value]) => `${key}=${value}`)
-      .join("&");
-
-    const url = `/meetup?${queryString}`;
-    router.push(url);
+  const clickHandler = () => {    
+    router.push(`/meetup/${meetup.id}`);
   };
 
   return (

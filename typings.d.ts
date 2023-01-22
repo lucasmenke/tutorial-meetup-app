@@ -1,4 +1,5 @@
 type Meetup = {
+   id: Number;
    title: string;
    description: string;
    city: string;
