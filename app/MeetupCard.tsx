@@ -15,7 +15,7 @@ export default function MeetupCard({ meetup }: Props) {
   const router = useRouter();
 
   const clickHandler = () => {    
-    router.push(`/meetup/${meetup.id}`);
+    router.push(`/meetups/${meetup.id}`);
   };
 
   return (

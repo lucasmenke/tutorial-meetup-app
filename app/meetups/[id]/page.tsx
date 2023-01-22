@@ -1,9 +1,7 @@
 "use client";
 
 import { notFound, useRouter } from "next/navigation";
-import json from "../../../data.json";
-import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
-import Router from "next/router";
+import { getEventById } from "../../../data";
 
 type Props = {
   params: {
@@ -13,7 +11,7 @@ type Props = {
 
 export default function MeetupPage({ params }: Props) {
   const router = useRouter();
-  const meetup = json.data.find((meetup) => meetup.id == params.id);
+  const meetup = getEventById(params.id);
 
   if ((meetup && Object.entries(meetup).length === 0) || !meetup) {
     return notFound();
@@ -25,7 +23,7 @@ export default function MeetupPage({ params }: Props) {
         <img
           src={meetup.image}
           alt={meetup.title}
-          className="h-50 max-w-md mx-auto md:max-w-lg lg:max-w-xl object-cover rounded-lg shadow-md"
+          className="max-w-md max-h-60 mx-auto md:max-w-lg lg:max-w-xl object-cover rounded-lg shadow-md"
         />
       )}
       <div className="px-10 mt-10">

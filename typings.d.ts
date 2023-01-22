@@ -7,4 +7,5 @@ type Meetup = {
    date: string;
    time: string
    image: string | null;
+   featured: boolean;
 }
