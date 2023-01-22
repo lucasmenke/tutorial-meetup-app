@@ -1,8 +1,8 @@
 import MeetupList from "./MeetupList";
-import data from "../data.json";
+import json from "../data.json";
 
 export default function HomePage() {
-  const meetups: Meetup[] = data.data;
+  const meetups: Meetup[] = json.data;
 
   return (
     <div>

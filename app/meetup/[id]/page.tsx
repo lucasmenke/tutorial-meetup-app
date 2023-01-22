@@ -1,5 +1,9 @@
-import { notFound } from "next/navigation";
-import data from "../../../data.json";
+"use client";
+
+import { notFound, useRouter } from "next/navigation";
+import json from "../../../data.json";
+import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
+import Router from "next/router";
 
 type Props = {
   params: {
@@ -8,17 +12,15 @@ type Props = {
 };
 
 export default function MeetupPage({ params }: Props) {
-  const id = params.id;
-  const meetup = data.data.find(meetup => meetup.id === id);
-  console.log(meetup);
-  console.log(data.data);
-  console.log(id);
+  const router = useRouter();
+  const meetup = json.data.find((meetup) => meetup.id == params.id);
+
   if ((meetup && Object.entries(meetup).length === 0) || !meetup) {
     return notFound();
   }
 
   return (
-    <div className="flex flex-col lg:flex-row pb-24 px-0 lg:px-10">
+    <div className="flex flex-col marker:pb-24 px-0 lg:px-10 items-center mt-20">
       {meetup.image && (
         <img
           src={meetup.image}
@@ -26,20 +28,25 @@ export default function MeetupPage({ params }: Props) {
           className="h-50 max-w-md mx-auto md:max-w-lg lg:max-w-xl object-cover rounded-lg shadow-md"
         />
       )}
-              <div className="px-10">
-          <h1 className="headerTitle px-0 no-underline pb-2">
-            {meetup.title}
-          </h1>
-          <div className="flex divide-x-2 space-x-4">
-            <h2 className="font-bold">
-              {meetup.time}{" "}{meetup.date}
-            </h2>
-            <h2 className="font-bold pl-4">{meetup.street}</h2>
-            <p className="pl-4">{meetup.city}</p>
-          </div>
-
-          <p className="pt-4">{meetup.description}</p>
+      <div className="px-10 mt-10">
+        <h1 className="headerTitle px-0 pb-2 mb-4 text-center">
+          {meetup.title}
+        </h1>
+        <div className="flex divide-x-2 space-x-4">
+          <h2 className="font-bold">{meetup.time}</h2>
+          <h2 className="font-bold pl-4">{meetup.date}</h2>
+          <p className="pl-4">
+            {meetup.street}, {meetup.city}
+          </p>
         </div>
+        <p className="pt-4 w-60 md:w-96 mb-10">{meetup.description}</p>
+        <button
+          className="h-10 w-60 md:w-96 rounded-full border-purple-700 border-2 mb-10 font-bold text-purple-700 hover:cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-200 ease-out"
+          onClick={router.back}
+        >
+          Go Back
+        </button>
+      </div>
     </div>
   );
 }
