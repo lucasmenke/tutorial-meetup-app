@@ -2,7 +2,6 @@ import {
   UserGroupIcon,
   CalendarIcon,
   MapPinIcon,
-  ArrowRightCircleIcon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
 

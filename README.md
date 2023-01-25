@@ -1,27 +1,21 @@
-# Next.js + Tailwind CSS Example
+# Meetup App
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+I build a non-responsive meetup website with Next.js 13 to learn more about the new app directory and routing. There are small bugs when filtering meetups by year and month.
 
-## Deploy your own
+Finished: 25.01.23  
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+<br>
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Pictures
 
-## How to use
+![](https://i.imgur.com/ERfcBeh.png)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+![](https://i.imgur.com/CSW3Eib.png)
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+![](https://i.imgur.com/JiYtMW8.png)
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+<br>
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Tech Stack
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+ - Next.js 13
