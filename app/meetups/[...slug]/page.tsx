@@ -12,6 +12,10 @@ export default function page({ params }: Props) {
 
   return (
     <div>
+      <div className="flex flex-row justify-center">
+        <h2 className="mx-4 font-bold">Year: {params.slug[0]}</h2>
+        <h2 className="mx-4 font-bold">Month: {params.slug[1]}</h2>
+      </div>
       <MeetupList meetups={meetups} />
     </div>
   );
