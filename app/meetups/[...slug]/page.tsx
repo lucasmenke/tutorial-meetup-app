@@ -1,9 +1,18 @@
+import { getEventsByYearAndMonth } from "../../../data";
+import MeetupList from "../../MeetupList";
+
 type Props = {
   params: {
-    slug: string;
+    slug: number[];
   };
 };
 
 export default function page({ params }: Props) {
-  return <div>{params.slug}</div>;
+  const meetups = getEventsByYearAndMonth(params.slug[0], params.slug[1]);
+
+  return (
+    <div>
+      <MeetupList meetups={meetups} />
+    </div>
+  );
 }

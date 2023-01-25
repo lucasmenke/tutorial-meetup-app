@@ -5,7 +5,7 @@ import { getEventById } from "../../../data";
 
 type Props = {
   params: {
-    id: Number;
+    id: number;
   };
 };
 

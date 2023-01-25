@@ -1,23 +1,16 @@
-"use client";
 import {
   UserGroupIcon,
   CalendarIcon,
   MapPinIcon,
   ArrowRightCircleIcon,
 } from "@heroicons/react/24/solid";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   meetup: Meetup;
 };
 
 export default function MeetupCard({ meetup }: Props) {
-  const router = useRouter();
-
-  const clickHandler = () => {    
-    router.push(`/meetups/${meetup.id}`);
-  };
-
   return (
     <div className="md:w-[600px] flex flex-row rounded-xl bg-slate-100 shadow-lg hover:scale-105 hover:shadow-xl hover:bg-slate-200 transition-all duration-200 ease-out">
       <div className="md:w-60 md:h-56 object-cover rounded-l-xl shadow-sm overflow-hidden">
@@ -51,10 +44,10 @@ export default function MeetupCard({ meetup }: Props) {
         </div>
 
         <div className="mb-4">
-          <button
+          <Link
+            href={`/meetups/${meetup.id}`}
             type="button"
             className="text-white h-8 bg-purple-700 hover:bg-purple-500 font-bold rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center"
-            onClick={clickHandler}
           >
             Explore Event
             <svg
@@ -70,7 +63,7 @@ export default function MeetupCard({ meetup }: Props) {
                 clipRule="evenodd"
               ></path>
             </svg>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
