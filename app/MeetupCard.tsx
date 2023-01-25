@@ -53,7 +53,7 @@ export default function MeetupCard({ meetup }: Props) {
         <div className="mb-4">
           <button
             type="button"
-            className="text-white h-8 bg-purple-700 hover:bg-purple-500 font-bold rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+            className="text-white h-8 bg-purple-700 hover:bg-purple-500 font-bold rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center"
             onClick={clickHandler}
           >
             Explore Event
